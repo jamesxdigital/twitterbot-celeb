@@ -15,56 +15,51 @@ var hashtags = []
 
 
 
+
+
 function doSomething() {
+	T.get('search/tweets', { q: 'question', count: 100 }, function(err, data, response) {
+		randomNormalAccount = data.statuses[0].user.screen_name;
+		T.get('trends/place', {id:1 }, function(err, data, response) {
+			for (i = 0; i < data[0].trends.length; i++) { 
+		    	hashtags.push(data[0].trends[i].name);
+			}
+			hashtags = hashtags.filter(Boolean)
+			randomHashtag=hashtags[Math.floor((Math.random() * hashtags.length) + 0)]
+			console.log(randomHashtag)
+
+			randomNumberTweet = Math.floor((Math.random() * 10) + 0);
+
+			randomNumberQuestions = Math.floor((Math.random() * questions.length) + 0);
+			randomNumberAccounts = Math.floor((Math.random() * accounts.length) + 0);
+			randomNumberThoughts = Math.floor((Math.random() * thoughts.length) + 0);
+
+			randomQuestion = questions[randomNumberQuestions].toLowerCase();
+			randomCelebAccount = accounts[randomNumberAccounts];
+			randomThought = thoughts[randomNumberThoughts].toLowerCase();
 
 
-	T.get('trends/place', {id:1 }, function(err, data, response) {
-		for (i = 0; i < data[0].trends.length; i++) { 
-	    	hashtags.push(data[0].trends[i].name);
-		}
-		hashtags = hashtags.filter(Boolean)
-		randomHashtag=hashtags[Math.floor((Math.random() * hashtags.length) + 0)]
-		console.log(randomHashtag)
-		
+			if (randomNumberTweet < 6){
+				randomThoughtTweet = randomThought + " " + randomHashtag;
+				randomTweet = randomThoughtTweet;
+			}else{
+				if (randomNumberTweet < 8){
+					randomAccount = randomNormalAccount
+				}
+				else{
+					randomAccount = randomCelebAccount
+				}
+				randomQuestionTweet = '@' + randomAccount + " " + randomQuestion;
+				randomTweet = randomQuestionTweet;
+			}
 
-
-
-
-
-		randomNumberTweet = Math.floor((Math.random() * 10) + 0);
-
-		randomNumberQuestions = Math.floor((Math.random() * questions.length) + 0);
-		randomNumberAccounts = Math.floor((Math.random() * accounts.length) + 0);
-		randomNumberThoughts = Math.floor((Math.random() * thoughts.length) + 0);
-
-		randomQuestion = questions[randomNumberQuestions].toLowerCase();
-		randomAccount = accounts[randomNumberAccounts];
-		randomThought = thoughts[randomNumberThoughts].toLowerCase();
-
-
-		randomQuestionTweet = '@' + randomAccount + " " + randomQuestion;
-		randomThoughtTweet = randomThought + " " + randomHashtag;
-
-		if (randomNumberTweet < 6){
-			randomTweet = randomThoughtTweet;
-		}else{
-			randomTweet = randomQuestionTweet;
-		}
-
-
-		T.post('statuses/update', { status: randomTweet}, function(err, data, response) {
-			console.log("------------------------------------------------------------------------");
-			console.log(randomTweet);
-			console.log(data);
+			T.post('statuses/update', { status: randomTweet}, function(err, data, response) {
+				console.log("------------------------------------------------------------------------");
+				console.log(randomTweet);
+				console.log(data);
+			});
 		});
-
-
-	});
-
-
-
-
-	
+	})
 }
 
 
