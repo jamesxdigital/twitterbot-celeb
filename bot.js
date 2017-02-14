@@ -52,7 +52,7 @@ function doSomething() {
 		}
 
 
-		T.post('statuses/update', { status: randomThoughtTweet}, function(err, data, response) {
+		T.post('statuses/update', { status: randomTweet}, function(err, data, response) {
 			console.log("------------------------------------------------------------------------");
 			console.log(randomTweet);
 			console.log(data);
