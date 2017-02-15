@@ -66,7 +66,7 @@ function doSomething() {
 
 
 (function loop() {
-    var rand = randomNumberTweet = Math.floor((Math.random() * 1800000) + 300000);
+    var rand = randomNumberTweet = Math.floor((Math.random() * 3600000) + 1800000);
     setTimeout(function() {
             doSomething();
             loop();  
