@@ -8,4 +8,4 @@ This is my first attempt of making a Twitterbot.
 
 This Node.js application runs constantly from an online Heroku server. It's been running since May 2017 and the twitter account has picked up a few followers along the way...
 
-<a class="twitter-timeline" data-theme="light" data-link-color="#00c266" href="https://twitter.com/yo_inquisitor?ref_src=twsrc%5Etfw">Tweets by yo_inquisitor</a> 
+a class="twitter-timeline" data-theme="light" data-link-color="#00c266" href="https://twitter.com/yo_inquisitor?ref_src=twsrc%5Etfw">Tweets by yo_inquisitor</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
