@@ -8,4 +8,4 @@ This is my first attempt of making a Twitterbot.
 
 This Node.js application runs constantly from an online Heroku server. It's been running since May 2017 and the twitter account has picked up a few followers along the way...
 
-<a href="https://twitter.com/yo_inquisitor>Tweets by yo_inquisitor</a>
+<a href="https://twitter.com/yo_inquisitor">Tweets by yo_inquisitor</a>
